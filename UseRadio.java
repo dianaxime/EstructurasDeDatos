@@ -65,7 +65,7 @@ public class UseRadio implements Radio{
         }
     }
 
-    public void changeStation (boolean up) {
+    public void changeStation ( boolean up ) {
 
     	if ( frequency==FALSE ) {
         
@@ -75,7 +75,7 @@ public class UseRadio implements Radio{
 
         		if ( station==107.9 ){
 
-        			station = 87.9
+        			station = 87.9;
         		} 
 
         		station = station + 0.2;
@@ -84,7 +84,7 @@ public class UseRadio implements Radio{
 
         		if ( station==87.9 ){
 
-        			station = 107.9
+        			station = 107.9;
         		} 
 
         		station = station - 0.2;
@@ -99,7 +99,7 @@ public class UseRadio implements Radio{
 
         		if ( station==1610 ){
 
-        			station = 530
+        			station = 530;
         		} 
 
         		station = station + 10;
@@ -108,12 +108,48 @@ public class UseRadio implements Radio{
 
         		if ( station==530 ){
 
-        			station = 1610
+        			station = 1610;
         		} 
 
         		station = station - 10;
 
         	} 
         }
+    }
+
+    public boolean getFrequency () {
+
+    	return frequency;
+    }
+
+    public double getStation () {
+
+    	return station;
+    }
+
+    public void saveStation ( int numButton ) {
+
+    	numButton--;
+
+    	for ( i = 0; i < buttonStation.length(); i++) {
+
+    		if ( i==numButton ) {
+
+    			buttonStation[i] = getStation();
+    		}
+    	}
+    }
+
+    public void changeStationButton ( int numButton ) {
+
+    	numButton--;
+
+    	for ( i = 0; i < buttonStation.length(); i++) {
+
+    		if ( i==numButton ) {
+
+    			station = buttonStation[i];
+    		}
+    	}
     }
 }
