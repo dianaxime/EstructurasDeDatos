@@ -22,9 +22,21 @@ public class UseRadio implements Radio{
 
     private boolean frequency; // AM (TRUE) / FM (FALSE)
 
-    private double[12] buttonStation; // Estaciones guardadas
+    private double[] buttonStation; // Estaciones guardadas
 
     private double station; // Estacion en la que se encuentra la radio
+
+    public UseRadio () {
+
+    	buttonStation = new double[12];
+
+    	state = FALSE;
+
+    	frequency = TRUE;
+
+    	station = 87.9;
+
+    }
 
     public void toggle () {
 
@@ -56,11 +68,15 @@ public class UseRadio implements Radio{
 
             frequency = TRUE;
 
+            station = 530;
+
         } else if ( frequency==TRUE ) {
 
         	// Si la frecuencia (frequency) es AM (TRUE) modificar a FM (FALSE)
 
         	frequency = FALSE;
+
+        	station = 87.9;
 
         }
     }
