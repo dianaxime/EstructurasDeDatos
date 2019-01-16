@@ -18,9 +18,9 @@
 
 public class UseRadio implements Radio{
 
-    private boolean state; // Encedido (TRUE) / Apagado (FALSE)
+    private boolean state; // Encedido (true) / Apagado (false)
 
-    private boolean frequency; // AM (TRUE) / FM (FALSE)
+    private boolean frequency; // AM (true) / FM (false)
 
     private double[] buttonStation; // Estaciones guardadas
 
@@ -30,9 +30,9 @@ public class UseRadio implements Radio{
 
     	buttonStation = new double[12];
 
-    	state = FALSE;
+    	state = false;
 
-    	frequency = TRUE;
+    	frequency = true;
 
     	station = 87.9;
 
@@ -40,17 +40,17 @@ public class UseRadio implements Radio{
 
     public void toggle () {
 
-        if ( state==FALSE ) {
+        if ( state==false ) {
         
-        	// Si el estado (state) es apagado (FALSE) modificar a encendido (TRUE)
+        	// Si el estado (state) es apagado (false) modificar a encendido (true)
 
-            state = TRUE;
+            state = true;
 
-        } else if ( state==TRUE ) {
+        } else if ( state==true ) {
 
-        	// Si el estado (state) es encendido (TRUE) modificar a apagado (FALSE)
+        	// Si el estado (state) es encendido (true) modificar a apagado (false)
 
-        	state = FALSE;
+        	state = false;
 
         }
     }
@@ -62,19 +62,19 @@ public class UseRadio implements Radio{
 
     public void changeFrequency () {
 
-        if ( frequency==FALSE ) {
+        if ( frequency==false ) {
         
-        	// Si la frecuencia (frequency) es FM (FALSE) modificar a AM (TRUE)
+        	// Si la frecuencia (frequency) es FM (false) modificar a AM (true)
 
-            frequency = TRUE;
+            frequency = true;
 
             station = 530;
 
-        } else if ( frequency==TRUE ) {
+        } else if ( frequency==true ) {
 
-        	// Si la frecuencia (frequency) es AM (TRUE) modificar a FM (FALSE)
+        	// Si la frecuencia (frequency) es AM (true) modificar a FM (false)
 
-        	frequency = FALSE;
+        	frequency = false;
 
         	station = 87.9;
 
@@ -83,11 +83,11 @@ public class UseRadio implements Radio{
 
     public void changeStation ( boolean up ) {
 
-    	if ( frequency==FALSE ) {
+    	if ( frequency==false ) {
         
-        	// Si la frecuencia (frequency) es FM (FALSE)
+        	// Si la frecuencia (frequency) es FM (false)
 
-        	if ( up==TRUE) {
+        	if ( up==true) {
 
         		if ( station==107.9 ){
 
@@ -96,7 +96,7 @@ public class UseRadio implements Radio{
 
         		station = station + 0.2;
 
-        	} else if ( up==FALSE ) {
+        	} else if ( up==false ) {
 
         		if ( station==87.9 ){
 
@@ -107,11 +107,11 @@ public class UseRadio implements Radio{
 
         	}
 
-        } else if ( frequency==TRUE ) {
+        } else if ( frequency==true ) {
 
-        	// Si la frecuencia (frequency) es AM (TRUE)
+        	// Si la frecuencia (frequency) es AM (true)
 
-        	if ( up==TRUE) {
+        	if ( up==true) {
 
         		if ( station==1610 ){
 
@@ -120,7 +120,7 @@ public class UseRadio implements Radio{
 
         		station = station + 10;
 
-        	} else if ( up==FALSE ) {
+        	} else if ( up==false ) {
 
         		if ( station==530 ){
 
@@ -147,7 +147,7 @@ public class UseRadio implements Radio{
 
     	numButton--;
 
-    	for ( i = 0; i < buttonStation.length(); i++) {
+    	for ( int i = 0; i < buttonStation.length; i++) {
 
     		if ( i==numButton ) {
 
@@ -160,7 +160,7 @@ public class UseRadio implements Radio{
 
     	numButton--;
 
-    	for ( i = 0; i < buttonStation.length(); i++) {
+    	for ( int i = 0; i < buttonStation.length; i++) {
 
     		if ( i==numButton ) {
 
