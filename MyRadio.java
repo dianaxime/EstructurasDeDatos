@@ -14,9 +14,15 @@
 
 */
 
+import java.util.Scanner; //Importar el scanner de java de la libreria
+
 public class MyRadio () {
 
 	public static void main(String[] args) {
+
+		Scanner scan;
+
+		scan = new Scanner(System.in);
 
 		UseRadio radio;
 
@@ -37,6 +43,36 @@ public class MyRadio () {
 			System.out.println( "| 6. Apagar el radio                  |" );
 			System.out.println( "| 7. Salir                            |" );
 			System.out.println( "---------------------------------------" );
+
+			opcion = scan.nextInt();
+
+			switch ( opcion ) {
+
+				case 1:
+
+				break;
+
+				case 2:
+
+				break;
+
+				case 3:
+
+				break;
+
+				case 4:
+
+				break;
+
+				case 5:
+
+				break;
+
+				case 6:
+
+				break;
+
+			}
 		}
 		
 	}
