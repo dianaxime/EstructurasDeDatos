@@ -16,7 +16,7 @@
 
 import java.util.Scanner; //Importar el scanner de java de la libreria
 
-public class MyRadio () {
+public class MyRadio  {
 
 	public static void main(String[] args) {
 
@@ -32,7 +32,11 @@ public class MyRadio () {
 
 		opcion = 0;
 
-		while ( opcion=!7 ) {
+		int button;
+
+		int updown;
+
+		while ( opcion!=7 ) {
 
 			System.out.println( "---------------------------------------" );
 			System.out.println( "| 1. Encender el radio                |" );
@@ -50,25 +54,64 @@ public class MyRadio () {
 
 				case 1:
 
+				radio.toggle();
+
 				break;
 
 				case 2:
+
+				radio.changeFrequency();
 
 				break;
 
 				case 3:
 
+				System.out.println("1. Siguiente emisora");
+				System.out.println("2. Anterior emisora");
+
+				updown = scan.nextInt();
+
+				switch ( updown ) {
+
+					case 1:
+
+					radio.changeStation(true);
+
+					break;
+
+					case 2: 
+
+					radio.changeStation(false);
+
+					break;
+
+				}
+
 				break;
 
 				case 4:
+
+				System.out.println("¿Que boton desea seleccionar?");
+
+				button = scan.nextInt();
+
+				radio.saveStation(button);
 
 				break;
 
 				case 5:
 
+				System.out.println("¿Que boton desea seleccionar?");
+
+				button = scan.nextInt();
+
+				radio.changeStationButton(button);
+
 				break;
 
 				case 6:
+
+				radio.toggle();
 
 				break;
 
