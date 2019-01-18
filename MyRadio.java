@@ -16,7 +16,52 @@
 
 import java.util.Scanner; //Importar el scanner de java de la libreria
 
+import java.text.DecimalFormat; // Importa el modificador de texto
+
+import java.text.NumberFormat; // Importa el modificador de texto
+
 public class MyRadio  {
+
+	private static String toString(Radio radio){
+
+		String infoRadio; // Guarda los datos actuales del Radio
+
+		NumberFormat formato; // Formato de las emisoras
+
+        formato = new DecimalFormat("#0.0");
+
+        infoRadio = "---------------------------------\n";
+
+        infoRadio += "Radio:"  + ((radio.getState() ? "ON" : "OFF")) + "\n";
+
+        infoRadio +="Frecuencia: " + (( radio.getFrequency() ? "FM" : "AM")) + "\n";
+
+        infoRadio +="Emisora actual: " + formato.format(radio.getStation()) + "\n"; 
+
+        infoRadio += "---------------------------------\n";
+
+        return infoRadio;
+    }
+
+    private static String buttons(UseRadio radio){
+
+    	String emisoras;
+
+    	emisoras="";
+
+    	for (int i=0; i<radio.buttonStation.length; i++){
+
+    		if (radio.buttonStation[i]==0.0){
+
+    			emisoras+="| 0.0 ";
+    		}
+    		else{
+
+    			emisoras+="| "+ radio.buttonStation[i];
+    		}
+    	}
+    	return emisoras;
+    }
 
 	public static void main(String[] args) {
 
@@ -53,6 +98,9 @@ public class MyRadio  {
 			System.out.println( "| 6. Apagar el radio                  |" );
 			System.out.println( "| 7. Salir                            |" );
 			System.out.println( "---------------------------------------" );
+
+			System.out.println(toString(radio));
+			System.out.println(buttons(radio));
 
 			opcion = scan.nextInt();
 
