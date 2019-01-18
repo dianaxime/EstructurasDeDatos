@@ -165,6 +165,16 @@ public class UseRadio implements Radio{
     		if ( i==numButton ) {
 
     			station = buttonStation[i];
+
+    			if ( ( station>=87.9 ) && ( station<=107.9 ) && ( frequency==true ) ) {
+
+    				changeFrequency();
+
+    			} else if ( ( station>=530 ) && ( station<=1610 ) && ( frequency==false ) ) {
+
+    				changeFrequency();
+    				
+    			}
     		}
     	}
     }
