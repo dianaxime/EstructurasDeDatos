@@ -28,13 +28,13 @@ public class UseRadio implements Radio{
 
     public UseRadio () {
 
-    	buttonStation = new double[12];
+    	buttonStation = new double[12]; // Crea los botones para guardar emisoras
 
-    	state = false;
+    	state = false; // Inicia con la radio apagada 
 
-    	frequency = true;
+    	frequency = true; // Inicia en AM
 
-    	station = 87.9;
+    	station = 530; // Inicia en la menor emisora de AM
 
     }
 
@@ -89,21 +89,29 @@ public class UseRadio implements Radio{
 
         	if ( up==true) {
 
+        		// Si la opcion es subir de emisora 
+
         		if ( station==107.9 ){
+
+        			//cuando llega al rango mas alto vuelve al comienzo
 
         			station = 87.9;
         		} 
 
-        		station = station + 0.2;
+        		station = station + 0.2; // Suma para llegar a la siguiente emisora
 
         	} else if ( up==false ) {
 
+        		// Si la opcion es regresar a una emisora
+
         		if ( station==87.9 ){
+
+        			// Al llegar al limite mas bajo vuelve al final
 
         			station = 107.9;
         		} 
 
-        		station = station - 0.2;
+        		station = station - 0.2; // Resta para encontrar la emisora previa
 
         	}
 
@@ -113,21 +121,29 @@ public class UseRadio implements Radio{
 
         	if ( up==true) {
 
+        		// Si la opcion es subir de emisora 
+
         		if ( station==1610 ){
+
+        			//cuando llega al final de las emisoras vuelve a comenzar
 
         			station = 530;
         		} 
 
-        		station = station + 10;
+        		station = station + 10; // Suma para llegar a la siguiente emisora
 
         	} else if ( up==false ) {
 
+        		// Si la opcion es regresar a una emisora
+
         		if ( station==530 ){
+
+        			// Cuando llega a la primera emisora regresa al final
 
         			station = 1610;
         		} 
 
-        		station = station - 10;
+        		station = station - 10; // Resta para encontrar la emisora previa
 
         	} 
         }
@@ -135,19 +151,25 @@ public class UseRadio implements Radio{
 
     public boolean getFrequency () {
 
-    	return frequency;
+    	return frequency; // Devuelve en que frecuencia se encuentra
     }
 
     public double getStation () {
 
-    	return station;
+    	return station; // Devuelve la estacion actual
     }
 
     public void saveStation ( int numButton ) {
 
-    	numButton--;
+    	numButton--; /* Resta uno para que sea equivalente 
+
+    	a los indices del array */
 
     	for ( int i = 0; i < buttonStation.length; i++) {
+
+    		/* Recorre el array y cuando encuentra el boton indicado por el 
+
+    		usuario almacena en el la estacion actual */
 
     		if ( i==numButton ) {
 
@@ -158,9 +180,15 @@ public class UseRadio implements Radio{
 
     public void changeStationButton ( int numButton ) {
 
-    	numButton--;
+    	numButton--; /* Resta uno para que sea equivalente 
+
+    	a los indices del array */
 
     	for ( int i = 0; i < buttonStation.length; i++) {
+
+    		/* Recorre el array y cuando encuentra el boton indicado por el 
+
+    		usuario cambia al valor de la emisora almacenado */
 
     		if ( i==numButton ) {
 
@@ -168,9 +196,17 @@ public class UseRadio implements Radio{
 
     			if ( ( station>=87.9 ) && ( station<=107.9 ) && ( frequency==true ) ) {
 
+    				/* Si la emisora se encuentra en el rango de FM y la frecuencia es AM
+
+    				modifica la frecuencia */
+
     				changeFrequency();
 
     			} else if ( ( station>=530 ) && ( station<=1610 ) && ( frequency==false ) ) {
+
+    				/* Si la emisora se encuentra en el rango de AM y la frecuencia es FM
+
+    				modifica la frecuencia */
 
     				changeFrequency();
     				
