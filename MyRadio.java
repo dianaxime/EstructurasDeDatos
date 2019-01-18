@@ -22,21 +22,27 @@ public class MyRadio  {
 
 		Scanner scan;
 
-		scan = new Scanner(System.in);
+		scan = new Scanner(System.in); /* lectura de la informacion proporcionada
+
+		por el usuario */
 
 		UseRadio radio;
 
-		radio = new UseRadio();
+		radio = new UseRadio(); //instancia de la clase UseRadio
 
-		int opcion;
+		int opcion; // recibe los valores introducidos por el usuario
 
-		opcion = 0;
+		opcion = 0; 
 
-		int button;
+		int button; // recibe el numero de boton que el usuario desee para su emisora
 
-		int updown;
+		int updown; // recibe si el usuario desea subir / bajar de emisora
 
 		while ( opcion!=7 ) {
+
+			/* Mientras la decision del usuario sea distinta a salir le permitira
+
+			realizar cualesquiera de las siguientes opciones: */
 
 			System.out.println( "---------------------------------------" );
 			System.out.println( "| 1. Encender el radio                |" );
@@ -54,13 +60,13 @@ public class MyRadio  {
 
 				case 1:
 
-				radio.toggle();
+				radio.toggle(); // Enciende el radio
 
 				break;
 
 				case 2:
 
-				radio.changeFrequency();
+				radio.changeFrequency(); //Cambia de frecuencia AM / FM
 
 				break;
 
@@ -75,13 +81,17 @@ public class MyRadio  {
 
 					case 1:
 
-					radio.changeStation(true);
+					radio.changeStation(true); 
+
+					// Avanza a la emisora siguiente
 
 					break;
 
 					case 2: 
 
 					radio.changeStation(false);
+
+					// Vuelve a la emisora previa
 
 					break;
 
@@ -91,27 +101,31 @@ public class MyRadio  {
 
 				case 4:
 
-				System.out.println("¿Que boton desea seleccionar?");
+				System.out.println("¿Que boton desea seleccionar (del 1 al 12) ?");
 
 				button = scan.nextInt();
 
 				radio.saveStation(button);
 
+				// Guarda la estacion actual en el boton seleccionado 
+
 				break;
 
 				case 5:
 
-				System.out.println("¿Que boton desea seleccionar?");
+				System.out.println("¿Que boton desea seleccionar (del 1 al 12) ?");
 
 				button = scan.nextInt();
 
 				radio.changeStationButton(button);
 
+				// Cambia de la estacion actual a la que se encuentra guardada en el boton
+
 				break;
 
 				case 6:
 
-				radio.toggle();
+				radio.toggle(); // Apaga el radio
 
 				break;
 
